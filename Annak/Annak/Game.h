@@ -3,28 +3,33 @@
 #include "World.h"
 #include "Tile.h"
 #include "People.h"
+#include "OpenCVImageProcessor.h"
 class Game
 {
 private:
 	int points;
 	Input input;
 	World world;
+	OpenCVImageProcessor imageProcessor;
 	std::pair<int,int> currentTile;
 	std::pair<int,int> moveTile;
 
 public:
-	Game():input(),world(){
+	Game():moveTile(pair<int,int>(0,0)), input(), world(),imageProcessor() {
 		points = 0;
-		moveTile.first = 0;
-		moveTile.second = 0;
 		input.parse_and_store();
 		initworld();
+		imageProcessor.setWorldMap(world.getTileGrid());
+		imageProcessor.setImages("C:\\Users\\user\\Documents\\kamaTech\\C++\\AnnakGame\\assets\\TILES");
+		imageProcessor.processImages();
 		start();
 		inputSteps();
 		asserts();
 
 	}
+	void play() {
 
+	}
 	void initworld() {
 		world.fillTileGrid(input.world->data);
 		world.fillCellGrid();
