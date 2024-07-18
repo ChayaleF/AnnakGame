@@ -15,7 +15,7 @@ private:
 	std::pair<int,int> moveTile;
 
 public:
-	Game():moveTile(pair<int,int>(0,0)), input(), world(),imageProcessor() {
+	Game():moveTile(pair<int,int>(0,0)), input("input.txt", "output.txt"), world(),imageProcessor() {
 		points = 0;
 		input.parse_and_store();
 		initworld();

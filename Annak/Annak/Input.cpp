@@ -1,21 +1,31 @@
 #include "Input.h"
 #include "Utility.h"
-
-
-
+void Input::start_lines()
+{
+    if (!m_infile.empty()) {
+        read_lines(m_infile, m_lines);
+        m_at_line = m_lines.begin();
+    }
+}
 std::string Input::next_line()
 {
     std::string line = "";
-    std::getline(std::cin, line);
+    if (!m_lines.empty()) {
+        if (m_at_line != m_lines.end()) {
+            line = *m_at_line;
+            m_at_line++;
+        }
+    }
+    else {
+        std::getline(std::cin, line);
+    }
     return line;
 }
-
 void Input::parse_and_store()
 {
-
+    start_lines();
     // read first command
     auto line = next_line();
-  //  line = next_line();
     std::vector< std::shared_ptr<Command> >* command_list = &start;
     bool parsing_world = false;
     bool asserts_reached = false;
@@ -60,7 +70,6 @@ void Input::parse_and_store()
         line = next_line();
     }
 }
-
 std::shared_ptr<Command> Input::parse_command(std::string line)
 {
     auto strings = split(line);
@@ -70,4 +79,3 @@ std::shared_ptr<Command> Input::parse_command(std::string line)
     );
     return command;
 }
-
