@@ -141,13 +141,16 @@
     <ClCompile Include="Annak.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Coordinate.cpp" />
+    <ClCompile Include="Moduls.cpp" />
+    <ClCompile Include="Moduls.h" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GroundObject.cpp" />
     <ClCompile Include="GroundTransportation.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Location.cpp" />
-    <ClCompile Include="OpenCVImageProcessor.cpp" />
+    <ClCompile Include="GameVisual.cpp" />
     <ClCompile Include="People.cpp" />
+    <ClCompile Include="ReadImages.cpp" />
     <ClCompile Include="ReadJson.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Road.cpp" />
@@ -165,8 +168,9 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Location.h" />
-    <ClInclude Include="OpenCVImageProcessor.h" />
+    <ClInclude Include="GameVisual.h" />
     <ClInclude Include="People.h" />
+    <ClInclude Include="ReadImages.h" />
     <ClInclude Include="ReadJson.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Road.h" />
@@ -178,6 +182,10 @@
   <ItemGroup>
     <None Include="configuration.json" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+    <Text Include="output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

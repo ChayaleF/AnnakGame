@@ -63,7 +63,16 @@
     <ClCompile Include="Location.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OpenCVImageProcessor.cpp">
+    <ClCompile Include="GameVisual.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadImages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Moduls.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Moduls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,7 +128,10 @@
     <ClInclude Include="Location.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OpenCVImageProcessor.h">
+    <ClInclude Include="GameVisual.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadImages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -128,5 +140,9 @@
     <None Include="configuration.json">
       <Filter>Header Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+    <Text Include="output.txt" />
   </ItemGroup>
 </Project>

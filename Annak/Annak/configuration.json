@@ -38,7 +38,7 @@
     "Helicopter": [ 1, 1, 0, 1, 1 ]
   },
   "Sizes": {
-    "Tile": [ 10, 5 ],
+    "Tile": [ 5, 5 ],
     "People": [ 1, 1 ],
     "Car": [ 2, 2 ],
     "Truck": [ 3, 3 ],

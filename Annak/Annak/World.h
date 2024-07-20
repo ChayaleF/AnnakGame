@@ -32,7 +32,7 @@ public:
     bool isExistResource(std::vector<int> cost, std::unordered_map<string, int>exist);
 
     bool canBuild(int x, int y, int sizeX, int sizeY);
-    std::vector<std::vector<Tile*>>& getGrid() { return tileGrid; }
+    std::vector<std::vector<Tile*>>& getTileGrid() { return tileGrid; }
     Tile*& selectTile(int x, int y);
     void insertResource(int amount, std::string resource, int x, int y);
     void insertResources(std::vector<int> resources, int x, int y);

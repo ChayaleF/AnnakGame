@@ -523,7 +523,7 @@ std::pair<int, int> World::move(std::pair<int, int> prev, std::pair<int, int> ne
     Coordinate* nextCell = getCell(next);
     Settlement* prevS = isSettlement(prev);
     Settlement* nextS = isSettlement(next);
-    bool occupied;
+    bool occupied=false;
     if (nextCell->getAirTransport() || nextCell->getGroundTransportation() || nextCell->getPeople())
         occupied = true;
     if (prevCell->getAirTransport()) {

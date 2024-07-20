@@ -9,7 +9,6 @@ private:
     int cars = 0;
     int trucks = 0;
     int helicopters = 0;
-    //std::unordered_map<std::string, int> resources;
 
 public:
     Settlement(GroundObjectType type, bool isComplete, std::pair<int, int>location);
@@ -17,7 +16,6 @@ public:
     static int getVillageCounter();
     void makeEmpty() override;
     void addResource(std::string resource, int amount) override;
-    //std::vector<int> selectedResource();
     void addPeople(int amount);
     void subPeople(int amount);
     int getPeoples() const { return peoples; }
@@ -27,8 +25,4 @@ public:
     int getTrucks() const { return trucks; }
     void addHelicopter(int amount);
     int getHelicopters() const { return helicopters; }
-
-    /*   int getPeopleCount();
-       int getCarCount();
-       int getTruckCount();*/
 };

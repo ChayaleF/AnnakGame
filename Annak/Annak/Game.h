@@ -3,26 +3,25 @@
 #include "World.h"
 #include "Tile.h"
 #include "People.h"
-#include "OpenCVImageProcessor.h"
+#include "GameVisual.h"
 class Game
 {
 private:
 	int points;
 	Input input;
 	World world;
-	OpenCVImageProcessor imageProcessor;
+	GameVisual gameVisual;
 	std::pair<int,int> currentTile;
 	std::pair<int,int> moveTile;
 
 public:
-	Game():moveTile(pair<int,int>(0,0)), input("input.txt", "output.txt"), world(),imageProcessor() {
+	Game():moveTile(pair<int,int>(0,0)), input("input.txt", "output.txt"), world(), gameVisual() {
 		points = 0;
 		input.parse_and_store();
 		initworld();
-		imageProcessor.setWorldMap(world.getTileGrid());
-		imageProcessor.setImages("C:\\Users\\user\\Documents\\kamaTech\\C++\\AnnakGame\\assets\\TILES");
-		imageProcessor.processImages();
+		gameVisual.initByTiles(world.getTileGrid());
 		start();
+		gameVisual.show();
 		inputSteps();
 		asserts();
 
@@ -76,8 +75,8 @@ public:
 				manufactureInput(a.get());
 			else if (a.get()->name == Command::MOVE)
 				moveIn(a.get());
-			//else if (a.get()->name == Command::RESOURCES)
-				//resources(a.get());
+			else if (a.get()->name == Command::RESOURCES)
+				resources(a.get());
 
 		}
 	}
@@ -128,13 +127,15 @@ public:
 		world.insertPeople(std::stoi(command->arguments[0]), std::stoi(command->arguments[1]), std::stoi(command->arguments[2]));
 	}
 	void buildStart(Command* command) {
-		SetPoints( world.buildGroundObject(command->arguments[0], std::stoi(command->arguments[1]), std::stoi(command->arguments[2]),true));
+		SetPoints(world.buildGroundObject(command->arguments[0], std::stoi(command->arguments[1]), std::stoi(command->arguments[2]),true));
+		gameVisual.buildGroundObjects(command->arguments[0],std::stoi(command->arguments[1])-1, std::stoi(command->arguments[2])-1);
 	}
 	void makeEmpty(Command* command) {
 		world.makeEmpty(std::stoi(command->arguments[0]), std::stoi(command->arguments[1]));
 	}
 	void manufactureStart(Command* command) {
 		world.manufacture(command->arguments[0], std::stoi(command->arguments[1]), std::stoi(command->arguments[2]),true);
+		gameVisual.buildTransposation(command->arguments[0], std::stoi(command->arguments[1]) - 1, std::stoi(command->arguments[2]) - 1);
 	}
 	void resources(Command* command) {
 		world.insertResources(std::vector<int> { std::stoi(command->arguments[0]), std::stoi(command->arguments[1]), std::stoi(command->arguments[2]), std::stoi(command->arguments[3]) }, std::stoi(command->arguments[4]), std::stoi(command->arguments[5]));

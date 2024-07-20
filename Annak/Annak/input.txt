@@ -1,0 +1,23 @@
++World
+1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1
++Start
+Build City 1 1
+Build Road 21 6
+Build Road 26 6
+Build Road 26 11
+Build Road 26 16
+Build Road 31 6
+Build Road 36 6
+Build Road 36 11
+Build Road 36 16
+Manufacture Truck 21 6
++Input
+Select 22 7
+Move 36 16
+Wait 2000
++Asserts
+SelectedCoordinates
